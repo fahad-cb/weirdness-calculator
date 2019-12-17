@@ -1,5 +1,8 @@
 module.exports = {
-    buildModules: [
-      '@nuxtjs/vuetify',
-    ]
+  plugins: [
+    '@plugins/helpers.js',
+  ],
+  buildModules: [
+    '@nuxtjs/vuetify',
+  ]
 }
