@@ -1,0 +1,12 @@
+{
+    "name": "weirdness-calculator",
+    "scripts": {
+        "dev": "nuxt"
+    },
+    "dependencies": {
+        "nuxt": "^2.10.2"
+    },
+    "devDependencies": {
+        "@nuxtjs/vuetify": "^1.9.1"
+    }
+}
