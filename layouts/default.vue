@@ -1,6 +1,6 @@
 <!-- Main Component(Controls the whole app) -->
 <template>
-  <v-app dark>
+  <v-app id="inspire">
     <appHeader/>
     <nuxt /> 
     <appFooter/>
