@@ -1,9 +1,10 @@
 <template>
   <v-content>
-    <v-container class="fill-height" fluid>
+    <v-container  >
       <v-row no-gutters>
-        <v-col cols="12" sm="6">
-          <p>Search any of the the image</p>
+        <v-col cols="12" sm="6" vs-type="flex">
+          <p>Find out how weird you are by selecting GIFs that make you laugh. We'll show you the least weird ones to start, but you can move the slider to make them weirder.</p>
+          <p>When you find a GIF you like, press the like button. Once you like 5 GIFs, we'll show you how weird are you.</p>
           <v-text-field 
             @keyup="searchGiphy" 
             v-model="SearchQuery" 
@@ -14,8 +15,8 @@
           </v-text-field>
         </v-col>
         <v-col cols="12" sm="6">
-          <div>
-            Selected Images
+          <div class="text-center" >
+            <h2 >Liked GIFS</h2>
           </div>
         </v-col>
       </v-row>
