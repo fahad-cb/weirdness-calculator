@@ -34,16 +34,26 @@
           <v-row v-if="selectedImage">
             <v-col cols="12" sm="12" >
               <div class="text-xs-center">
-                <v-img :src="`${selectedImage}`"  max-width="500" max-height="300"></v-img>
+                <v-img :src="`${selectedImage}`" max-width="500" max-height="300"></v-img>
               </div>
             </v-col>
-            <v-slider
-              v-model="weirdness"
-              step="10"
-              ticks="always"
-              tick-size="2"
-              @change="searchGiphy"
-            ></v-slider>
+            <v-col cols="12" sm="12" >
+              <v-slider
+                v-model="weirdness"
+                step="10"
+                ticks="always"
+                tick-size="2"
+                @change="searchGiphy"
+              ></v-slider>
+            </v-col>
+            <v-col cols="12" sm="12" >
+              <div class="text-xs-center">
+                <v-btn text icon color="deep-orange">
+                  <v-icon>mdi-thumb-up</v-icon>
+                  Like
+                </v-btn>
+              </div>
+            </v-col>
           </v-row>
         </v-col>
         <v-col cols="12" sm="6">
