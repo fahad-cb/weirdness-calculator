@@ -70,7 +70,7 @@
             </v-col>
           </v-row>
           <v-row>
-           <v-btn @click="calculateWeirdness">
+           <v-btn @click="calculateWeirdness" v-if="likedImages.length > 4">
              Calculate Weirdness
            </v-btn>
           </v-row>
