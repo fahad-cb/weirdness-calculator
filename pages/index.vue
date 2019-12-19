@@ -100,7 +100,7 @@ export default {
     searchGiphy (e) {
       this.liked = false;
       this.searchLoading = true;
-      if (this.SearchQuery > 3){
+      if (this.SearchQuery.length > 3){
         let query = this.SearchQuery.trim()
         let weirdness = this.weirdness / 10
         this.$axios.get(`translate?api_key=${this.$store.getters.apiKey}&s=${query}&weirdness=${weirdness}`).then((response) => {
