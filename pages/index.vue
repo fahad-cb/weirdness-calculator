@@ -34,7 +34,7 @@
           <v-row v-if="selectedImage">
             <v-col cols="12" sm="12" >
               <div class="text-xs-center">
-                <v-img :src="`${selectedImage}`" max-width="500" max-height="300"></v-img>
+                <v-img :src="`${selectedImage}`" :ref="'image'+selectedImage" max-width="600" max-height="300"></v-img>
               </div>
             </v-col>
             <v-col cols="12" sm="12" >
@@ -48,7 +48,7 @@
             </v-col>
             <v-col cols="12" sm="12" >
               <div class="text-xs-center">
-                <v-btn text icon color="deep-orange">
+                <v-btn text icon color="deep-orange" v-if="!liked" @click="saveImage">
                   <v-icon>mdi-thumb-up</v-icon>
                   Like
                 </v-btn>
@@ -60,6 +60,20 @@
           <div class="text-center" >
             <h2 >Liked GIFS</h2>
           </div>
+          <v-row justify="space-between">
+            <v-col cols="auto" v-for="img in likedImages">
+              <v-img
+                height="180"
+                width="250"
+                :src="`${img}`"
+              ></v-img>
+            </v-col>
+          </v-row>
+          <v-row>
+           <v-btn @click="calculateWeirdness">
+             Calculate Weirdness
+           </v-btn>
+          </v-row>
         </v-col>
       </v-row>
     </v-container>
@@ -71,39 +85,53 @@ import { mapMutations } from 'vuex'
 export default {
   data () {
     return {
-      appName : this.$store.getters.counter,
+      appName : 'Weirdness calculator',
       SearchQuery:[],
       color : 'red',
       searchLoading : false,
+      liked : false,
       selectedImage: '',
       lazySelectedImage : '',
       weirdness : '1',
+      likedImages : this.$store.getters.likedImages,
     }
   },
   methods : {
     searchGiphy (e) {
+      this.liked = false;
       this.searchLoading = true;
-      let query = this.SearchQuery.trim()
-      let weirdness = this.weirdness / 10
       if (query.length > 3){
+        let query = this.SearchQuery.trim()
+        let weirdness = this.weirdness / 10
         this.$axios.get(`translate?api_key=${this.$store.getters.apiKey}&s=${query}&weirdness=${weirdness}`).then((response) => {
           if (response){
             this.searchLoading = false;
             let Images = response.data.data.images;  
             this.selectedImage = Images.downsized.url;
             this.lazySelectedImage = Images.fixed_height_small_still.url;
-            this.$store.commit('addGif',this.selectedImage);
           }
         }).catch((err) => {
           console.log(err);
         });
       }
-      
+    },
+    saveImage (e){
+      this.liked = true;
+      if (this.likedImages.length < 5 ){
+        this.$store.commit('addGif',this.selectedImage);
+      }else{
+        console.log('cant add more');
+        alert('cant add more');
+      }
+    },
+    calculateWeirdness (){
+      alert('calculateed');
     }
   },
   beforeMount () {
   },
   mounted () {
+    console.log(this.likedImages)
     this.$myFunction('this my app again')
   }
 }

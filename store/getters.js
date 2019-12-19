@@ -1,5 +1,5 @@
 export default {
     counter:state=> state.counter,
-    likedGifs:state=> state.likedGifs,
+    likedImages:state=> state.likedImages,
     apiKey:state=> state.apiKey,
 }
