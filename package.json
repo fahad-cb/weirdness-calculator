@@ -5,7 +5,8 @@
     },
     "dependencies": {
         "@nuxtjs/axios": "^5.9.0",
-        "nuxt": "^2.10.2"
+        "nuxt": "^2.10.2",
+        "vuex-persistedstate": "^2.7.0"
     },
     "devDependencies": {
         "@nuxtjs/vuetify": "^1.9.1",

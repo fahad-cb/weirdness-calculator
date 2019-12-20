@@ -117,6 +117,7 @@ export default {
     },
     saveImage (e){
       this.liked = true;
+      console.log(this.likedImages)
       if (this.likedImages.length < 5 ){
         this.$store.commit('addGif',this.selectedImage);
       }else{
@@ -126,12 +127,13 @@ export default {
     },
     calculateWeirdness (){
       alert('calculateed');
+      this.$route.push('/results');
     }
   },
   beforeMount () {
   },
   mounted () {
-    console.log(this.likedImages)
+    console.log(this.$store.getters)
     this.$myFunction('this my app again')
   }
 }

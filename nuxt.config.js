@@ -1,6 +1,7 @@
 module.exports = {
   plugins: [
     '@plugins/helpers.js',
+    { src: '@/plugins/localStorage.js', ssr: false},
   ],
   buildModules: [
     '@nuxtjs/vuetify',
