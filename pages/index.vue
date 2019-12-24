@@ -92,7 +92,7 @@ export default {
       liked : false,
       selectedImage: '',
       lazySelectedImage : '',
-      weirdness : '1',
+      weirdness : 0,
       likedImages : this.$store.getters.likedImages,
     }
   },
@@ -117,24 +117,21 @@ export default {
     },
     saveImage (e){
       this.liked = true;
-      console.log(this.likedImages)
+      let weirdness = this.weirdness / 10
       if (this.likedImages.length < 5 ){
         this.$store.commit('addGif',this.selectedImage);
+        this.$store.commit('addWeirdness',weirdness);
       }else{
-        console.log('cant add more');
         alert('cant add more');
       }
     },
     calculateWeirdness (){
-      alert('calculateed');
-      this.$route.push('/results');
+      this.$router.push('/results');
     }
   },
   beforeMount () {
   },
-  mounted () {
-    console.log(this.$store.getters)
-    this.$myFunction('this my app again')
+  mounted () { 
   }
 }
 
