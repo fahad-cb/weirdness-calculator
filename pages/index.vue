@@ -127,6 +127,7 @@ export default {
   beforeMount () {
   },
   mounted () { 
+    this.$store.commit('snackIt','this is a massage')
   }
 }
 

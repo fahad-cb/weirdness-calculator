@@ -3,6 +3,7 @@
   <v-app id="inspire">
     <appHeader/>
     <nuxt /> 
+    <snackBar/>
     <appFooter/>
   </v-app>
 </template>
@@ -13,6 +14,7 @@
 export default {
     layout : 'default',
     components : {
+        snackBar  : () => import ('~/components/snackbar'),
         appHeader : () => import ('~/components/appHeader'),
         appFooter : () => import ('~/components/appFooter'),
     }
