@@ -60,15 +60,7 @@
           <div class="text-center" >
             <h2 >Liked GIFS</h2>
           </div>
-          <v-row justify="space-between">
-            <v-col cols="auto" v-for="img in likedImages">
-              <v-img
-                height="180"
-                width="250"
-                :src="`${img}`"
-              ></v-img>
-            </v-col>
-          </v-row>
+          <likedImages :likedImages="likedImages" />
           <v-row>
            <v-btn @click="calculateWeirdness" v-if="likedImages.length > 4">
              Calculate Weirdness
@@ -96,6 +88,9 @@ export default {
       likedImages : this.$store.getters.likedImages,
     }
   },
+  components : {
+    likedImages: ()=> import('~/components/likedImages')
+  },  
   methods : {
     searchGiphy (e) {
       this.liked = false;

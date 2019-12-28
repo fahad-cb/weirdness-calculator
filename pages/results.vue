@@ -9,15 +9,7 @@
       <v-row>
         <v-col cols="12" >          
           <h2> Yours Liked GIFS</h2>
-          <v-row justify="space-between">
-            <v-col cols="auto" v-for="img in likedImages">
-              <v-img
-                height="150"
-                width="200"
-                :src="`${img}`"
-              ></v-img>
-            </v-col>
-          </v-row>
+          <likedImages :likedImages="likedImages"/> 
         </v-col>
       </v-row>
       <v-row >
@@ -38,9 +30,13 @@ export default {
       likedImages : this.$store.getters.likedImages,
     }
   },
+  components : {
+    likedImages: ()=> import('~/components/likedImages')
+  },
   methods : {
     startOver (){
-      this.commit()
+      this.$store.commit('startOver',{});
+      this.$router.push('/');
     }
   },
   beforeMount () {
