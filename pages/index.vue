@@ -56,16 +56,16 @@
             </v-col>
           </v-row>
         </v-col>
-        <v-col cols="12" sm="6">
-          <div class="text-center" >
+        <v-col cols="12" sm="6" class="text-center">
+          <div>
             <h2 >Liked GIFS</h2>
           </div>
           <likedImages :likedImages="likedImages" />
-          <v-row>
-           <v-btn @click="calculateWeirdness" v-if="likedImages.length > 4">
+          <no-ssr>	
+           <v-btn  class="text-center" @click="calculateWeirdness" v-if="likedImages && likedImages.length > 4">
              Calculate Weirdness
            </v-btn>
-          </v-row>
+          </no-ssr>
         </v-col>
       </v-row>
     </v-container>
@@ -116,7 +116,7 @@ export default {
       if (this.likedImages.length < 5 ){
         this.$store.commit('addGif',this.selectedImage);
         this.$store.commit('addWeirdness',weirdness);
-        this.$store.commit('snackIt','You liked a Gifs')
+        this.$store.commit('snackIt','You liked ('+this.likedImages.length+') Gif(s)')
       }else{
         this.$store.commit('snackIt','Cannot add more, max limit is 5')
       }
