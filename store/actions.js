@@ -1,7 +1,7 @@
 export default {
     async nuxtServerInit({commit},{error}){
         try{
-           console.log('sever init')
+           console.log('server init')
         }catch(err){
           console.log(err)
         }  

@@ -8,5 +8,8 @@ export default {
     startOver(state,payload){
         state.weirdnessArr = [];
         state.likedImages = [];
+    },
+    snackIt(state,payload){
+        state.snack = payload
     }
 }
