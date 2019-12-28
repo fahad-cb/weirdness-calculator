@@ -116,8 +116,9 @@ export default {
       if (this.likedImages.length < 5 ){
         this.$store.commit('addGif',this.selectedImage);
         this.$store.commit('addWeirdness',weirdness);
+        this.$store.commit('snackIt','You liked a Gifs')
       }else{
-        alert('cant add more');
+        this.$store.commit('snackIt','Cannot add more, max limit is 5')
       }
     },
     calculateWeirdness (){
@@ -127,7 +128,6 @@ export default {
   beforeMount () {
   },
   mounted () { 
-    this.$store.commit('snackIt','this is a massage')
   }
 }
 

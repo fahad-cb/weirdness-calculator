@@ -10,6 +10,6 @@ export default {
         state.likedImages = [];
     },
     snackIt(state,payload){
-        state.snack = payload
+        state.snack = payload;
     }
 }

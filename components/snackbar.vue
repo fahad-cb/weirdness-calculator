@@ -20,12 +20,13 @@ export default {
     },
     created (){
         this.$store.watch(state => state.snack, () =>{
-            const snack = this.$store.state.snack;
+            const msg = this.$store.state.snack;
             if (msg != ''){
-                this.message = snack;
-                this.snackbar = true
+                this.message = msg;
+                this.snackbar = true;
+                this.$store.commit('snackIt','')
             }
         })
-    }
+    },
 }
 </script>
