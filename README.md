@@ -7,7 +7,7 @@
 npm install
 ```
 
-#For development
+For development
 
 ```bash
 npm run dev
