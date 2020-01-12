@@ -5,6 +5,8 @@
 # preview
 
 ![homepage](https://github.com/fahad-cb/weirdness-calculator/blob/master/screenshots/home.png)
+
+
 ![resultspage](https://github.com/fahad-cb/weirdness-calculator/blob/master/screenshots/results.png)
 
 ### installation 
