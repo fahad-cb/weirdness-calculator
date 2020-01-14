@@ -26,4 +26,4 @@ npm run build
 npm run start
 ```
 
-Your service will listening http:localhost:3000
+Your service will listening http://localhost:3000
